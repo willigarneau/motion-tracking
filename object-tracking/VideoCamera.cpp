@@ -2,7 +2,7 @@
 #include "OpenCVHeaders.h"
 VideoCamera::VideoCamera() {}
 
-bool VideoCamera::Start(string windowName)
+bool VideoCamera::Start(char* windowName)
 {
 	VideoCapture cap(0);
 	if (!cap.isOpened()) {

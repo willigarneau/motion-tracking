@@ -27,12 +27,18 @@
     <ClCompile Include="VideoCamera.cpp">
       <Filter>Fichiers sources\Ressources</Filter>
     </ClCompile>
+    <ClCompile Include="Capture.cpp">
+      <Filter>Fichiers sources\Ressources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VideoCamera.h">
       <Filter>Fichiers d%27en-tête\Ressources Headers</Filter>
     </ClInclude>
     <ClInclude Include="OpenCVHeaders.h">
+      <Filter>Fichiers d%27en-tête\Ressources Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Capture.h">
       <Filter>Fichiers d%27en-tête\Ressources Headers</Filter>
     </ClInclude>
   </ItemGroup>

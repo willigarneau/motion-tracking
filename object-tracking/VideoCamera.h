@@ -3,5 +3,5 @@ class VideoCamera
 {
 public:
 	VideoCamera();
-	bool Start(string windowName);
+	bool Start(char* windowName);
 };

@@ -7,7 +7,7 @@
 #include "OpenCVHeaders.h"
 
 int main() {
-	Mat frame = imread("lena.png");
-	imshow("template frame", frame);
+	Capture frame("lena.png");
+	frame.Show("Titre d'image", 1);
 	waitKey(0);
 }
