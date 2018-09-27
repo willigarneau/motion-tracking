@@ -1,0 +1,4 @@
+﻿  Main.cpp
+e:\session 5\vision par ordinateur\semaine 6\object-tracking\object-tracking\object-tracking\main.cpp(7): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+e:\session 5\vision par ordinateur\semaine 6\object-tracking\object-tracking\object-tracking\main.cpp(8): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+opencv_world342.lib(opencv_world342.dll) : fatal error LNK1112: type d'ordinateur module 'x64' en conflit avec le type d'ordinateur cible 'x86'
