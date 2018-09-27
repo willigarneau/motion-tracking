@@ -1,0 +1,21 @@
+// Video camera management component
+#include "OpenCVHeaders.h"
+VideoCamera::VideoCamera() {}
+
+bool VideoCamera::Start(string windowName)
+{
+	VideoCapture cap(0);
+	if (!cap.isOpened()) {
+		return false;
+	}
+	cv::Mat img;
+
+	while (1) {
+		if (!cap.read(img)) {
+			std::cerr << "Error capturing " << std::endl;
+			return false;
+		}
+		imshow(windowName, img);
+	}
+	return true;
+}

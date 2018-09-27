@@ -126,6 +126,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="VideoCamera.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OpenCVHeaders.h" />
+    <ClInclude Include="VideoCamera.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

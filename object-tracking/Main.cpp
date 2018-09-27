@@ -4,10 +4,7 @@
 	- Isaac Fiset
 */
 
-#include "opencv2\opencv.hpp"
-#include <iostream>;
-using namespace std;
-using namespace cv;
+#include "OpenCVHeaders.h"
 
 int main() {
 	Mat frame = imread("lena.png");

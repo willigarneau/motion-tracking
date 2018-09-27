@@ -13,10 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers sources\Ressources">
+      <UniqueIdentifier>{50f229a2-5490-4b32-ad20-99c371f15a46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Ressources Headers">
+      <UniqueIdentifier>{3600fc20-3cc2-462f-8051-bad439c48ac5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="VideoCamera.cpp">
+      <Filter>Fichiers sources\Ressources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="VideoCamera.h">
+      <Filter>Fichiers d%27en-tête\Ressources Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCVHeaders.h">
+      <Filter>Fichiers d%27en-tête\Ressources Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
