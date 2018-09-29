@@ -1,3 +1,2 @@
-﻿  Capture.cpp
-e:\session 5\vision par ordinateur\semaine 6\object-tracking\object-tracking\object-tracking\opencvheaders.h(5): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-  object-tracking.vcxproj -> E:\Session 5\Vision par ordinateur\Semaine 6\object-tracking\object-tracking\x64\Debug\object-tracking.exe
+﻿  Main.cpp
+  object-tracking.vcxproj -> K:\Session 5\Vision par ordinateur\Semaine 6\Travail Pratique 1\object-tracking\x64\Debug\object-tracking.exe

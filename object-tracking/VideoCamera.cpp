@@ -10,7 +10,7 @@ bool VideoCamera::Start(char* windowName)
 	}
 	cv::Mat img;
 
-	while (1) {
+	while (true) {
 		if (!cap.read(img)) {
 			std::cerr << "Error capturing " << std::endl;
 			return false;

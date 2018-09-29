@@ -1,8 +1,16 @@
 // OpenCV dependency file
 
-// INCLUDES
-#include "opencv2\opencv.hpp"
-#include <iostream>;
+// OPENCV INCLUDES
+#include "opencv2\core\utility.hpp"
+#include "opencv2\videoio.hpp"
+#include "opencv2\core\core.hpp"
+#include "opencv2\imgproc\imgproc.hpp"
+#include "opencv2\highgui.hpp"
+#include <iostream>
+#include <cstring>
+
+
+// PERSONNAL INCLUDES
 #include "VideoCamera.h"
 #include "Capture.h"
 
