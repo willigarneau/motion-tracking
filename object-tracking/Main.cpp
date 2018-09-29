@@ -1,101 +1,103 @@
 #include "OpenCVHeaders.h"
 
 /*
-TRACK A YELLOW BALL - OBJECT DETECTION METHOD USING COLOR SEPERATION OPEN CV 3.1.0
+	Motion detection tracking 
+	Computer Vision 2018
+	By William Garneau
 */
 
 // https://www.learnopencv.com/object-tracking-using-opencv-cpp-python/
 
 int main() {
 
-	cv::VideoCapture capWebcam(0);		// declare a VideoCapture object to associate webcam, 0 means use 1st (default) webcam
+	std::cout << "Welcome in the motion detection application \nThe program is starting...\n";
 
-	if (capWebcam.isOpened() == false)	 //  To check if object was associated to webcam successfully
+	VideoCapture capture(0);
+
+	int frameIndex = 0;
+	Mat lastFrame;
+
+	while (capture.isOpened())
 	{
-		std::cout << "error: Webcam connect unsuccessful\n";	// if not then print error message
-		return(0);												// and exit program
-	}
+		Mat frame;
+		if (!capture.read(frame)) 
+			break;
 
-	cv::Mat imgOriginal;		// Input image
-	cv::Mat hsvImg;				// HSV Image
-	cv::Mat threshImg;			// Thresh Image
+		Mat grayFrame, dilatedFrame, edges, deltaFrame, deltaCopyFrame;
 
-	std::vector<cv::Vec3f> v3fCircles;		// 3 element vector of floats, this will be the pass by reference output of HoughCircles()
+		// Scale up image
+		resize(frame, frame, Size(0, 0), 2, 2);
 
-	char charCheckForEscKey = 0;
+		// Convert to grayscale
+		cvtColor(frame, grayFrame, CV_BGR2GRAY);
 
-	int lowH = 1;							// Set Hue
-	int highH = 15;
+		// Blur the capture
+		GaussianBlur(grayFrame, grayFrame, Size(21, 21), 0);
 
-	int lowS = 200;							// Set Saturation
-	int highS = 255;
+		if (frameIndex == 0) {
+			frameIndex++;
 
-	int lowV = 100;							// Set Value
-	int highV = 225;
-	// HUE for YELLOW is 21-30.
-	// Adjust Saturation and Value depending on the lighting condition of the environment as well as the surface of the object.
+			// Initialize video parameters
+			int fcc = capture.get(CV_CAP_PROP_FOURCC);
+			int fps = capture.get(CV_CAP_PROP_FPS);
+			Size frameSize(grayFrame.size().width, grayFrame.size().height);
 
-	while (charCheckForEscKey != 27 && capWebcam.isOpened()) {				// until the Esc is pressed or webcam connection is lost
-		bool blnFrameReadSuccessfully = capWebcam.read(imgOriginal);		// get next frame
+			std::cout << "FRAME SIZE = " << grayFrame.size().width << " x " << grayFrame.size().height << "\n";
+			// Initialize the last reference frame
+			lastFrame = grayFrame;
+			continue;
+		}
+		else if ((frameIndex % 50) == 0) {
+			frameIndex = 0;
+		}
+		frameIndex++;
 
-		if (!blnFrameReadSuccessfully || imgOriginal.empty()) {				// if frame read unsuccessfully
-			std::cout << "error: frame can't read \n";						// print error message
-			break;															// jump out of loop
+
+		// Create difference frame
+		absdiff(lastFrame, grayFrame, deltaFrame);
+		threshold(deltaFrame, deltaFrame, 50, 255, THRESH_BINARY);
+
+		// Dilate to fill-in holes and find contours
+		int iterations = 2;
+		dilate(deltaFrame, deltaFrame, Mat(), Point(-1, -1), iterations);
+
+		// Approximate contours to polygons + get bounding rects and circles
+		// https://docs.opencv.org/2.4/doc/tutorials/imgproc/shapedescriptors/bounding_rects_circles/bounding_rects_circles.html
+		vector<vector<Point>> contours;
+		vector<Vec4i> hierarchy;
+		findContours(deltaFrame, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point(0, 0));
+		vector<vector<Point> > contours_poly(contours.size());
+		vector<Rect> boundRect(contours.size());
+		vector<Point2f>center(contours.size());
+		vector<float>radius(contours.size());
+
+		for (int i = 0; i < contours.size(); i++)
+		{
+			approxPolyDP(Mat(contours[i]), contours_poly[i], 3, true);
+			boundRect[i] = boundingRect(Mat(contours_poly[i]));
+			minEnclosingCircle((Mat)contours_poly[i], center[i], radius[i]);
 		}
 
-		cv::cvtColor(imgOriginal, hsvImg, CV_BGR2HSV);						// Convert Original Image to HSV Thresh Image
 
-		cv::inRange(hsvImg, cv::Scalar(lowH, lowS, lowV), cv::Scalar(highH, highS, highV), threshImg);
-
-		cv::GaussianBlur(threshImg, threshImg, cv::Size(3, 3), 0);			//Blur Effect
-		cv::dilate(threshImg, threshImg, 0);								// Dilate Filter Effect
-		cv::erode(threshImg, threshImg, 0);									// Erode Filter Effect
-
-		// fill circles vector with all circles in processed image
-		cv::HoughCircles(threshImg, v3fCircles, CV_HOUGH_GRADIENT, 2, threshImg.rows / 4, 100, 50, 10, 800);  // algorithm for detecting circles		
-
-		for (int i = 0; i < v3fCircles.size(); i++) {						// for each circle
-
-			std::cout << "Ball position X = " << v3fCircles[i][0]			// x position of center point of circle
-				<< ",\tY = " << v3fCircles[i][1]								// y position of center point of circle
-				<< ",\tRadius = " << v3fCircles[i][2] << "\n";					// radius of circle
-
-																				// draw small green circle at center of object detected
-			cv::circle(imgOriginal,												// draw on original image
-				cv::Point((int)v3fCircles[i][0], (int)v3fCircles[i][1]),		// center point of circle
-				3,																// radius of circle in pixels
-				cv::Scalar(0, 255, 0),											// draw green
-				CV_FILLED);														// thickness
-
-																				// draw red circle around object detected 
-			cv::circle(imgOriginal,												// draw on original image
-				cv::Point((int)v3fCircles[i][0], (int)v3fCircles[i][1]),		// center point of circle
-				(int)v3fCircles[i][2],											// radius of circle in pixels
-				cv::Scalar(0, 0, 255),											// draw red
-				3);																// thickness
+		// Draw polygonal contour + bonding rects + circles
+		for (int i = 0; i< contours.size(); i++)
+		{
+			Scalar color = Scalar(255, 0, 0);
+			drawContours(frame, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point());
+			rectangle(frame, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0);
+			circle(frame, center[i], (int)radius[i], color, 2, 8, 0);
 		}
 
-		// declare windows
-		cv::namedWindow("imgOriginal", CV_WINDOW_AUTOSIZE);
-		cv::namedWindow("threshImg", CV_WINDOW_AUTOSIZE);
+		imshow("Motion detection Frame", frame);
+		imshow("Object detection", deltaFrame);
 
-		/* Create trackbars in "threshImg" window to adjust according to object and environment.*/
-		cv::createTrackbar("LowH", "threshImg", &lowH, 179);	//Hue (0 - 179)
-		cv::createTrackbar("HighH", "threshImg", &highH, 179);
-
-		cv::createTrackbar("LowS", "threshImg", &lowS, 255);	//Saturation (0 - 255)
-		cv::createTrackbar("HighS", "threshImg", &highS, 255);
-
-		cv::createTrackbar("LowV", "threshImg", &lowV, 255);	//Value (0 - 255)
-		cv::createTrackbar("HighV", "threshImg", &highV, 255);
-
-
-		cv::imshow("imgOriginal", imgOriginal);					// show windows
-		cv::imshow("threshImg", threshImg);
-
-		charCheckForEscKey = cv::waitKey(1);					// delay and get key press
+		// Press Escape to exit
+		switch (waitKey(1)) {
+		case 27:
+			capture.release();
+			return 0;
+		}
 	}
-
-	return(0);
+	return 0;
 }
 

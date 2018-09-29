@@ -19,6 +19,12 @@
     <Filter Include="Fichiers d%27en-tête\Ressources Headers">
       <UniqueIdentifier>{3600fc20-3cc2-462f-8051-bad439c48ac5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Tracking">
+      <UniqueIdentifier>{14a6bd88-8a96-4a5c-82fc-b1dc193df41b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Tracking Headers">
+      <UniqueIdentifier>{314bb9e2-936a-42b8-a008-1a5c6cdf6e8c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -30,6 +36,9 @@
     <ClCompile Include="Capture.cpp">
       <Filter>Fichiers sources\Ressources</Filter>
     </ClCompile>
+    <ClCompile Include="Tracking.cpp">
+      <Filter>Fichiers sources\Tracking</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VideoCamera.h">
@@ -40,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="Capture.h">
       <Filter>Fichiers d%27en-tête\Ressources Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Tracking.h">
+      <Filter>Fichiers d%27en-tête\Tracking Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
