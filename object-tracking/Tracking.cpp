@@ -67,11 +67,10 @@ void Tracking::MotionDetection()
 			minEnclosingCircle((Mat)contours_poly[i], center[i], radius[i]);
 		}
 
-
 		// Draw polygonal contour + bonding rects + circles
 		for (int i = 0; i< contours.size(); i++)
 		{
-			Scalar color = Scalar(255, 0, 0);
+			Scalar color = Scalar(0, 255, 0);
 			drawContours(frame, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point());
 			rectangle(frame, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0);
 			circle(frame, center[i], (int)radius[i], color, 2, 8, 0);
