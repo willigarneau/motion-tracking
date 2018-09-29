@@ -4,9 +4,12 @@
 	Motion detection tracking 
 	Computer Vision 2018
 	By William Garneau
-*/
 
-// https://www.learnopencv.com/object-tracking-using-opencv-cpp-python/
+	*** DOCUMENTATION ***
+    https://www.learnopencv.com/object-tracking-using-opencv-cpp-python/
+    https://docs.opencv.org/2.4/doc/tutorials/imgproc/shapedescriptors/bounding_rects_circles/bounding_rects_circles.html
+
+*/
 
 int main() {
 
@@ -62,7 +65,6 @@ int main() {
 		dilate(deltaFrame, deltaFrame, Mat(), Point(-1, -1), iterations);
 
 		// Approximate contours to polygons + get bounding rects and circles
-		// https://docs.opencv.org/2.4/doc/tutorials/imgproc/shapedescriptors/bounding_rects_circles/bounding_rects_circles.html
 		vector<vector<Point>> contours;
 		vector<Vec4i> hierarchy;
 		findContours(deltaFrame, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point(0, 0));
