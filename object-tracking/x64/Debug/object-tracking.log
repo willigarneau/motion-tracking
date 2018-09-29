@@ -1,4 +1,2 @@
 ﻿  Main.cpp
-k:\session 5\vision par ordinateur\semaine 6\travail pratique 1\object-tracking\object-tracking\main.cpp(41): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
-k:\session 5\vision par ordinateur\semaine 6\travail pratique 1\object-tracking\object-tracking\main.cpp(42): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
   object-tracking.vcxproj -> K:\Session 5\Vision par ordinateur\Semaine 6\Travail Pratique 1\object-tracking\x64\Debug\object-tracking.exe
