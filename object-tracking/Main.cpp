@@ -19,7 +19,8 @@
 
 int main() {
 
-	std::cout << "Welcome in the motion detection application \nThe program is starting...\n";
+	std::cout << "Welcome in the motion detection application" << endl << "The program is starting..." << endl;
+	std::cout << "You can stop the process at any moment by pressing Escape" << endl;
 
 	Tracking tracker;
 	tracker.MotionDetection();
