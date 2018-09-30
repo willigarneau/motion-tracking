@@ -1,13 +1,13 @@
 /*
 	Motion detection tracking 
 	Computer Vision 2018
-	Cégep Lévis-Lauzon
+	CÃ©gep LÃ©vis-Lauzon
 
 	OpenCV 3.42
 
 	*** DOCUMENTATION ***
-    https://www.learnopencv.com/object-tracking-using-opencv-cpp-python/
-    https://docs.opencv.org/2.4/doc/tutorials/imgproc/shapedescriptors/bounding_rects_circles/bounding_rects_circles.html
+    	https://www.learnopencv.com/object-tracking-using-opencv-cpp-python/
+    	https://docs.opencv.org/2.4/doc/tutorials/imgproc/shapedescriptors/bounding_rects_circles/bounding_rects_circles.html
 	https://docs.opencv.org/2.4/modules/video/doc/motion_analysis_and_object_tracking.html
 	https://www.intorobotics.com/how-to-detect-and-track-object-with-opencv/
 
