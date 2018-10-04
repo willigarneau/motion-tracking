@@ -21,7 +21,7 @@ void Tracking::MotionDetection()
 		// Convert to grayscale
 		cvtColor(frame, grayFrame, CV_BGR2GRAY);
 
-		// Blur the capture
+		// Blur the capture to avoid a lot of circles
 		GaussianBlur(grayFrame, grayFrame, Size(21, 21), 0);
 
 		if (frameIndex == 0) {
