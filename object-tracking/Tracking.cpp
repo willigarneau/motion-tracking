@@ -16,6 +16,9 @@ void Tracking::MotionDetection()
 
 		Mat grayFrame, dilatedFrame, edges, deltaFrame, deltaCopyFrame;
 
+		// Scale up image
+		/*resize(frame, frame, Size(0, 0), 2, 2);*/
+
 		// Convert to grayscale
 		cvtColor(frame, grayFrame, CV_BGR2GRAY);
 
@@ -46,8 +49,7 @@ void Tracking::MotionDetection()
 		threshold(deltaFrame, deltaFrame, 50, 255, THRESH_BINARY);
 
 		// Dilate to fill-in holes and find contours
-		int iterations = 15;
-		//erode(deltaFrame, deltaFrame, Mat(), Point(-1, -1), iterations);
+		int iterations = 20;
 		dilate(deltaFrame, deltaFrame, Mat(), Point(-1, -1), iterations);
 
 		// Approximate contours to polygons + get bounding rects and circles
