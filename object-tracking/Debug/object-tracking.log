@@ -1,4 +1,8 @@
-﻿  Main.cpp
-e:\session 5\vision par ordinateur\semaine 6\object-tracking\object-tracking\object-tracking\main.cpp(7): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-e:\session 5\vision par ordinateur\semaine 6\object-tracking\object-tracking\object-tracking\main.cpp(8): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+﻿  Capture.cpp
+  Main.cpp
+  Tracking.cpp
+e:\session 5\vision par ordinateur\semaine 6\travail pratique 1\object-tracking\object-tracking\tracking.cpp(63): warning C4018: '<' : incompatibilité signed/unsigned
+e:\session 5\vision par ordinateur\semaine 6\travail pratique 1\object-tracking\object-tracking\tracking.cpp(71): warning C4018: '<' : incompatibilité signed/unsigned
+  VideoCamera.cpp
+  Génération de code en cours...
 opencv_world342.lib(opencv_world342.dll) : fatal error LNK1112: type d'ordinateur module 'x64' en conflit avec le type d'ordinateur cible 'x86'
