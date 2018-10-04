@@ -1,2 +1,3 @@
-﻿  Tracking.cpp
+﻿  MovementDirection.cpp
+e:\session 5\vision par ordinateur\semaine 6\travail pratique 1\object-tracking\object-tracking\movementdirection.cpp(31): warning C4715: 'MovementDirection::ChangePosition' : les chemins de contrôle ne retournent pas tous une valeur
   object-tracking.vcxproj -> E:\Session 5\Vision par ordinateur\Semaine 6\Travail Pratique 1\object-tracking\x64\Debug\object-tracking.exe
