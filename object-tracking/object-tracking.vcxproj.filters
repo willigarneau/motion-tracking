@@ -39,6 +39,9 @@
     <ClCompile Include="Tracking.cpp">
       <Filter>Fichiers sources\Tracking</Filter>
     </ClCompile>
+    <ClCompile Include="MovementDirection.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VideoCamera.h">
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="Tracking.h">
       <Filter>Fichiers d%27en-tête\Tracking Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementDirection.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

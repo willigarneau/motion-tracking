@@ -8,10 +8,11 @@
 #include "opencv2\highgui.hpp"
 #include <iostream>
 #include <cstring>
-#include "Tracking.h"
 
 // PERSONNAL INCLUDES
 #include "VideoCamera.h"
+#include "MovementDirection.h"
+#include "Tracking.h"
 #include "Capture.h"
 
 // NAMESPACES

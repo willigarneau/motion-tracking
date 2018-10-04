@@ -15,14 +15,11 @@ void Tracking::MotionDetection()
 
 		Mat grayFrame, dilatedFrame, edges, deltaFrame, deltaCopyFrame;
 
-		// Scale up image
-		resize(frame, frame, Size(0, 0), 2, 2);
-
 		// Convert to grayscale
 		cvtColor(frame, grayFrame, CV_BGR2GRAY);
 
 		// Blur the capture to avoid a lot of circles
-		GaussianBlur(grayFrame, grayFrame, Size(21, 21), 0);
+		GaussianBlur(grayFrame, grayFrame, Size(5, 5), 0);
 
 		if (frameIndex == 0) {
 			frameIndex++;
@@ -77,7 +74,7 @@ void Tracking::MotionDetection()
 		}
 
 		imshow("Motion detection Frame", frame);
-		imshow("Object detection", deltaFrame);
+		imshow("Threshold frame", deltaFrame);
 
 		// Press Escape to exit
 		switch (waitKey(1)) {
