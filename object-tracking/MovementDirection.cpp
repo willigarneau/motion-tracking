@@ -44,6 +44,16 @@ void MovementDirection::ChangePosition(Position newPosition)
 {
 	if (newPosition.X == 0) {
 		inScreen = false;
+		if (outcomingLeft) {
+			cout << "Un objet est disparu vers la gauche." << endl;
+			outcomingLeft = false;
+			return;
+		}
+		else if (outcomingRight) {
+			cout << "Un objet est disparu vers la droite." << endl;
+			outcomingRight = false;
+			return;
+		}
 	}
 	else {
 		if ((newPosition.X - current.X) > 1 && (newPosition.X - current.X) < 20) {

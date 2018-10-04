@@ -43,7 +43,6 @@ void Tracking::MotionDetection()
 		}
 		frameIndex++;
 
-
 		// Find differences between the images
 		absdiff(lastFrame, grayFrame, deltaFrame);
 		threshold(deltaFrame, deltaFrame, 50, 255, THRESH_BINARY);
