@@ -9,6 +9,6 @@ class MovementDirection
 public:
 	MovementDirection();
 	MovementDirection(Position initialPosition);
-	bool ChangePosition(Position newPosition);
+	void ChangePosition(Position newPosition);
 };
 

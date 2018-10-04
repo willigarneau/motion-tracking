@@ -2,6 +2,8 @@
 
 Position current;
 bool inScreen = false;
+bool incomingLeft = false, incomingRight = false;
+bool outcomingLeft = false, outcomingRight = false;
 
 MovementDirection::MovementDirection() {}
 
@@ -9,24 +11,45 @@ MovementDirection::MovementDirection(Position initialPosition) {
 	current = initialPosition;
 	bool change = false;
 	// With a 640 * 480 frame
-	if (current.X < 60 && !inScreen) {
-		change = ChangePosition(initialPosition);
-		if (!inScreen) cout << "Un nouvel objet est apparu par la gauche." << endl;
-		inScreen = true;
+	ChangePosition(initialPosition);
+	if (!inScreen) {
+		if (current.X < 60 && current.X > 0) {
+			cout << "Un nouvel objet est apparu par la gauche." << endl;
+			incomingLeft = true;
+			incomingRight = false;
+			inScreen = true;
+		}
+		else if (current.X > 600) {
+			cout << "Un nouvel objet est apparu par la droite." << endl;
+			incomingRight = true;
+			incomingRight = false;
+			inScreen = true;
+		}
 	}
-	else if (current.X > 600 && !inScreen) {
-		change = ChangePosition(initialPosition);
-		if (!inScreen) cout << "Un nouvel objet est apparu par la droite." << endl;
-		inScreen = true;
+	else {
+		if (current.X < 60 && current.X > 0) {
+			outcomingLeft = true;
+			outcomingRight = false;
+			inScreen = true;
+		}
+		else if (current.X > 600) {
+			outcomingRight = true;
+			outcomingLeft = false;
+			inScreen = true;
+		}
 	}
 }
 
-bool MovementDirection::ChangePosition(Position newPosition)
+void MovementDirection::ChangePosition(Position newPosition)
 {
-	if ((newPosition.X - current.X) > 1 && (newPosition.X - current.X) < 20) {
-		current = newPosition;
-		return true;
+	if (newPosition.X == 0) {
+		inScreen = false;
 	}
-	inScreen = false;
+	else {
+		if ((newPosition.X - current.X) > 1 && (newPosition.X - current.X) < 20) {
+			current = newPosition;
+			return;
+		}
+	}
 }
 
