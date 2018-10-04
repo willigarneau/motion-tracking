@@ -13,13 +13,13 @@ MovementDirection::MovementDirection(Position initialPosition) {
 	// With a 640 * 480 frame
 	ChangePosition(initialPosition);
 	if (!inScreen) {
-		if (current.X < 60 && current.X > 0) {
+		if (current.X < 320 && current.X > 0) {
 			cout << "Un nouvel objet est apparu par la gauche." << endl;
 			incomingLeft = true;
 			incomingRight = false;
 			inScreen = true;
 		}
-		else if (current.X > 600) {
+		else if (current.X > 320) {
 			cout << "Un nouvel objet est apparu par la droite." << endl;
 			incomingRight = true;
 			incomingRight = false;
@@ -27,12 +27,12 @@ MovementDirection::MovementDirection(Position initialPosition) {
 		}
 	}
 	else {
-		if (current.X < 60 && current.X > 0) {
+		if (current.X < 320 && current.X > 0) {
 			outcomingLeft = true;
 			outcomingRight = false;
 			inScreen = true;
 		}
-		else if (current.X > 600) {
+		else if (current.X > 320) {
 			outcomingRight = true;
 			outcomingLeft = false;
 			inScreen = true;
