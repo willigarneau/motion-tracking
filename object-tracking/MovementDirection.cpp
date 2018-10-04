@@ -1,6 +1,8 @@
 #include "OpenCVHeaders.h"
 
-MovementDirection::MovementDirection()
-{
+MovementDirection::MovementDirection() {}
 
+void MovementDirection::ChangePosition(Position newPosition)
+{
 }
+

@@ -15,6 +15,10 @@ void Tracking::MotionDetection()
 
 		Mat grayFrame, dilatedFrame, edges, deltaFrame, deltaCopyFrame;
 
+		// Scale up image to setup a bigger blur
+		//resize(frame, frame, Size(0, 0), 1, 1);
+
+
 		// Convert to grayscale
 		cvtColor(frame, grayFrame, CV_BGR2GRAY);
 
