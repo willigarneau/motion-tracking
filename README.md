@@ -5,8 +5,6 @@
   Made with OpenCV in C++
   </p>
 
-
-
 > 🕺 💃 Practical Work in Computer Vision at Cegep Lévis-Lauzon. Put our knowledge of OpenCV into practice to create an object tracking program. 📸  🖼
 
 ### Detect and track real-time objects via a camera
@@ -23,12 +21,11 @@ Ensure you have following installed:
   - [x] [OpenCV 3.x](http://opencv.org/downloads.html) **with contribution package**
   - [x] A Webcamera ! (Personnaly, I have this one ([click here](https://www.edmundoptics.com/f/high-definition-dual-hdmi-and-usb-cameras/14263/)))
 
-
 ## Compile and run
 
 As simple as:
 
-```
+```c++
 $ make
 $ bin/track
 ```
@@ -37,7 +34,6 @@ or by debugging the whole program in **Visual Studio**
 
 The tracking program runs until you press `Echap`. Tab `Ctrl + C` inside your terminal 
 window to terminate.
-
 
 ## Disclaimer
 
@@ -54,7 +50,7 @@ helpful for you to spot the difference to yours.
 
 <b>OS</b>
 
-```
+```c++
 Windows 10 Professionnal 2018
 ```
 
