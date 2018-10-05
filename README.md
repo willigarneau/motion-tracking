@@ -20,7 +20,7 @@ Ensure you have following installed:
 
   - [x] [Visual Studio 2017 Entreprise](https://visualstudio.microsoft.com/fr/license-terms/mlt551018/)
   - [x] [OpenCV 3.x](http://opencv.org/downloads.html) **with contribution package**
-  - [x] A Webcamera ! (Personnaly, I have this one : [click here](https://www.edmundoptics.com/f/high-definition-dual-hdmi-and-usb-cameras/14263/)
+  - [x] A Webcamera ! (Personnaly, I have this one ([click here](https://www.edmundoptics.com/f/high-definition-dual-hdmi-and-usb-cameras/14263/)))
 
 
 ## Compile and run
@@ -31,6 +31,8 @@ As simple as:
 $ make
 $ bin/track
 ```
+
+or by debugging the whole program in **Visual Studio**
 
 The tracking program runs until you press `Echap`. Tab `Ctrl + C` inside your terminal 
 window to terminate.
