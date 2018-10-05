@@ -57,7 +57,7 @@ Windows 10 Professionnal 2018
 
 <b>OpenCV3</b>
 
-OpenCV 3.2.0 built and installed via following [homebrew](https://brew.sh/) params:
+OpenCV 3.2.0 built and installed via OpenCV library on Github !
 
 ---
 
