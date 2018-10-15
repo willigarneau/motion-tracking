@@ -5,7 +5,7 @@
   Made with OpenCV in C++
   </p>
 
-> 🕺 💃 Practical Work in Computer Vision at Cegep Lévis-Lauzon. Put our knowledge of OpenCV into practice to create an object tracking program. 📸  🖼
+> 🕺 💃 Made with OpenCV and a lot of love, this project is a simple, fast and efficient implementation of one of the many ways to make a motion detector. If you want to contribute to this project, do not hesitate to submit your ideas 📸  🖼
 
 # Preview
 
