@@ -40,7 +40,7 @@
       <Filter>Fichiers sources\Tracking</Filter>
     </ClCompile>
     <ClCompile Include="MovementDirection.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Tracking</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

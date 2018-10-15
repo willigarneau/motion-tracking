@@ -29,8 +29,8 @@ void Tracking::MotionDetection()
 			frameIndex++;
 
 			// Initialize video parameters
-			double fcc = capture.get(CV_CAP_PROP_FOURCC);
-			double fps = capture.get(CV_CAP_PROP_FPS);
+			//double fcc = capture.get(CV_CAP_PROP_FOURCC);
+			//double fps = capture.get(CV_CAP_PROP_FPS);
 			Size frameSize(grayFrame.size().width, grayFrame.size().height);
 
 			std::cout << "Frame Size = " << grayFrame.size().width << " x " << grayFrame.size().height << "\n";
@@ -48,9 +48,10 @@ void Tracking::MotionDetection()
 		threshold(deltaFrame, deltaFrame, 50, 255, THRESH_BINARY);
 
 		// Dilate to fill-in holes and find contours
-		int iterations = 20;
-		dilate(deltaFrame, deltaFrame, Mat(), Point(-1, -1), iterations);
-		//erode(deltaFrame, deltaFrame, Mat(), Point(-1, -1), iterations);
+		int dilateIterations = 20;
+		int erodeIterations = 15;
+		dilate(deltaFrame, deltaFrame, Mat(), Point(-1, -1), dilateIterations);
+		erode(deltaFrame, deltaFrame, Mat(), Point(-1, -1), erodeIterations);
 
 		// Approximate contours to polygons + get bounding rects and circles
 		vector<vector<Point>> contours;
