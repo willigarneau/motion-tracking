@@ -50,6 +50,7 @@ void Tracking::MotionDetection()
 		// Dilate to fill-in holes and find contours
 		int iterations = 20;
 		dilate(deltaFrame, deltaFrame, Mat(), Point(-1, -1), iterations);
+		erode(deltaFrame, deltaFrame, Mat(), Point(-1, -1), iterations);
 
 		// Approximate contours to polygons + get bounding rects and circles
 		vector<vector<Point>> contours;
