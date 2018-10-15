@@ -7,6 +7,10 @@
 
 > 🕺 💃 Practical Work in Computer Vision at Cegep Lévis-Lauzon. Put our knowledge of OpenCV into practice to create an object tracking program. 📸  🖼
 
+# Preview
+
+<img src="https://user-images.githubusercontent.com/33030290/46927150-065bed80-d002-11e8-9ef5-4f1a3c399397.gif"></a><br>
+
 ### Detect and track real-time objects via a camera
 
 The goal of this project was to make it a very simple motion detector, by simply displaying objects that differed from the previous image. I added some interesting features that could be favorable for your projects, such as the detection of the direction of objects and a display of the threshold of the base image.
