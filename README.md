@@ -7,7 +7,7 @@
 
 > 🕺 💃 Made with OpenCV and a lot of love, this project is a simple, fast and efficient implementation of one of the many ways to make a motion detector. If you want to contribute to this project, do not hesitate to submit your ideas 📸  🖼
 
-# Preview
+# Showcase
 
 <img src="https://user-images.githubusercontent.com/33030290/46927150-065bed80-d002-11e8-9ef5-4f1a3c399397.gif"></a><br>
 
